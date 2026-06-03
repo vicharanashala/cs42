@@ -537,7 +537,7 @@ function FAQExperience() {
 
       <AnimatePresence>
         {selectedFaq && selectedTopic && (
-          <motion.div className="fixed inset-0 z-40 flex items-center justify-center bg-[#26332d]/25 p-4 backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.div className="fixed inset-0 z-40 flex items-center justify-center bg-[#26332d]/25 p-4 backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeFaq}>
             <motion.div
               ref={answerRef}
               tabIndex={-1}
@@ -561,7 +561,7 @@ function FAQExperience() {
                   <TLDRBlock tldr={getTLDR(selectedFaq)!} />
                 </div>
               )}
-              <p className="mt-5 whitespace-pre-line text-sm font-medium leading-7 text-slate-600 sm:text-[15px]"><RichAnswer text={selectedFaq.answer} /></p>
+              <p className="mt-5 whitespace-pre-line text-sm font-medium leading-7 text-slate-900 sm:text-[15px] [--font-source-serif:var(--font-source-serif)] font-source-serif"><RichAnswer text={selectedFaq.answer} /></p>
               <div className="mt-6 flex flex-col gap-3 border-t border-[#ebe5d9] pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-slate-400">Verified from the Samagama FAQ</span>
                 <button onClick={copyLink} className="flex items-center gap-2 self-start rounded-full border border-[#e0dbcf] bg-white px-4 py-2 text-xs font-extrabold text-slate-600 transition hover:bg-[#f7f3eb]">

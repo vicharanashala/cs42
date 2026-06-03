@@ -103,7 +103,7 @@ function trimLen(s: string, max = 130): string {
 }
 
 export function generateTLDR(faq: FAQEntry): TLDR | null {
-  if (faq.answer.length <= 350) return null;
+  if (faq.answer.length <= 150) return null;
 
   /* ── 1. Static override ─────────────────────────────────────────────────── */
   const known = staticTLDR[faq.id];
