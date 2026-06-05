@@ -69,14 +69,6 @@ function usePinchZoom() {
   const lastPinchRef = useRef<number | null>(null);
 
   function attachZoom(el: HTMLElement) {
-    function onWheel(e: WheelEvent) {
-      e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.08 : 0.08;
-      const next = Math.min(Math.max(scaleRef.current + delta, 0.8), 3);
-      scaleRef.current = next;
-      applyTransform(el, scaleRef.current);
-    }
-
     function onTouchStart(e: TouchEvent) {
       if (e.touches.length === 2) {
         lastPinchRef.current = Math.hypot(
@@ -100,13 +92,11 @@ function usePinchZoom() {
     }
     function onTouchEnd() { lastPinchRef.current = null; }
 
-    el.addEventListener("wheel", onWheel, { passive: false });
     el.addEventListener("touchstart", onTouchStart, { passive: true });
     el.addEventListener("touchmove", onTouchMove, { passive: false });
     el.addEventListener("touchend", onTouchEnd, { passive: true });
 
     return () => {
-      el.removeEventListener("wheel", onWheel);
       el.removeEventListener("touchstart", onTouchStart);
       el.removeEventListener("touchmove", onTouchMove);
       el.removeEventListener("touchend", onTouchEnd);
@@ -423,12 +413,12 @@ function CampusIllustration({
                 >
                   <Icon size={compact ? 15 : 19} strokeWidth={2.5} />
                 </span>
-                {/* Label — collapses gracefully on small screens */}
-                <span className="mt-1 hidden w-full min-w-0 rounded-xl border border-[#ded8c9] bg-[#fffdf9]/95 px-1.5 py-1 text-center shadow-sm backdrop-blur-sm sm:block">
+                {/* Label — always visible, compact on mobile */}
+                <span className="mt-1 w-full min-w-0 rounded-xl border border-[#ded8c9] bg-[#fffdf9]/95 px-1.5 py-1 text-center shadow-sm backdrop-blur-sm">
                   <span className="block truncate text-[10px] font-extrabold leading-3 text-[#31413a] md:text-[11px] md:leading-4">
                     {topic.label}
                   </span>
-                  <span className="block hidden text-[9px] font-semibold leading-2 text-[#748078] md:block">
+                  <span className="block text-[9px] font-semibold leading-2 text-[#748078]">
                     {topic.faqs.length} qs
                   </span>
                 </span>
