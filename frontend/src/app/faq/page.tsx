@@ -376,7 +376,7 @@ function CampusIllustration({
   return (
     <div
       ref={mapRef}
-      className={`relative overflow-hidden rounded-[2rem] border border-[#d9dccd] bg-[#f4f2e6] shadow-[0_24px_70px_rgba(75,83,62,0.12)] touch-pan-x ${compact ? "h-44 md:h-[620px]" : "h-[60vh] md:h-[620px]"}`}
+      className={`relative overflow-y-auto rounded-[2rem] border border-[#d9dccd] bg-[#f4f2e6] shadow-[0_24px_70px_rgba(75,83,62,0.12)] touch-pan-x ${compact ? "h-44 md:h-[620px]" : "h-[60vh] md:h-[620px]"}`}
       style={{ willChange: "transform" }}
     >
       <Image
