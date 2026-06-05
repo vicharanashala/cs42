@@ -123,7 +123,7 @@ export default function ThreadDetailPage({ params }: { params: { id: string } })
   const studentEmail = thread.user_email ? thread.user_email.split('@')[0] : 'Student';
 
   return (
-    <div className="space-y-4 animate-in fade-in duration-300 font-sans max-w-2xl mx-auto pb-12 flex flex-col h-[calc(100vh-8rem)]">
+    <div className="space-y-4 animate-in fade-in duration-300 font-sans max-w-2xl mx-auto pb-12 flex flex-col md:h-[calc(100vh-8rem)]">
       
       {/* Back Breadcrumb & Header Title */}
       <div className="flex items-center justify-between border-b border-slate-200 pb-3 bg-slate-50/20">

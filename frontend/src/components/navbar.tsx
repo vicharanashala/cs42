@@ -13,7 +13,9 @@ import {
   Award,
   RefreshCw,
   LogOut,
-  ChevronDown
+  ChevronDown,
+  Menu,
+  X
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -21,6 +23,7 @@ export default function Navbar() {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [showRoleSwitcher, setShowRoleSwitcher] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const loadProfile = async () => {
     try {
@@ -169,6 +172,45 @@ export default function Navbar() {
             );
           })}
         </nav>
+
+        {/* Mobile hamburger button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+          aria-label="Toggle navigation menu"
+        >
+          {mobileMenuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
+        </button>
+
+        {/* Mobile menu drawer */}
+        {mobileMenuOpen && (
+          <div className="sm:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-lg z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <nav className="flex flex-col p-4 space-y-1">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+                      isActive
+                        ? 'bg-slate-900 text-white'
+                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        )}
 
         {/* Right user widget */}
         <div className="flex items-center space-x-3">

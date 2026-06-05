@@ -98,7 +98,7 @@ export default function AskDoubtsPage() {
       </div>
 
       {/* 3D Flip Card Container */}
-      <div className="w-full max-w-xl h-[400px] perspective-1000">
+      <div className="w-full max-w-xl min-h-[380px] md:h-[400px] perspective-1000">
         <div className={`relative w-full h-full duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
           
           {/* FRONT OF THE CARD (Question Input) */}
@@ -131,7 +131,7 @@ export default function AskDoubtsPage() {
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder="Ask anything, e.g. 'Can my HOD sign the NOC by email?' or 'When does my internship end?'..."
-                  className="w-full h-44 bg-slate-50/50 border border-slate-200/80 rounded-2xl p-4 text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-650/20 focus:border-indigo-650 transition-all placeholder:text-slate-400 resize-none leading-relaxed"
+                  className="w-full min-h-36 md:h-44 bg-slate-50/50 border border-slate-200/80 rounded-2xl p-4 text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-650/20 focus:border-indigo-650 transition-all placeholder:text-slate-400 resize-none leading-relaxed"
                   required
                 />
               </div>
@@ -160,10 +160,10 @@ export default function AskDoubtsPage() {
           </div>
 
           {/* BACK OF THE CARD (Answer Presentation) */}
-          <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white border border-slate-200/80 rounded-3xl shadow-xl shadow-slate-100/50 p-6 sm:p-8 flex flex-col justify-between overflow-hidden">
-            
+          <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white border border-slate-200/80 rounded-3xl shadow-xl shadow-slate-100/50 p-5 sm:p-8 flex flex-col justify-between overflow-hidden">
+
             {/* Scrollable Response body */}
-            <div className="flex-1 overflow-y-auto space-y-4 pr-1 scrollbar-thin scrollbar-thumb-slate-200">
+            <div className="flex-1 overflow-y-auto space-y-3 pr-1 scrollbar-thin scrollbar-thumb-slate-200">
               {response && (
                 <>
                   {/* Metadata Header */}
