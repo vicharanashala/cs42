@@ -15,7 +15,7 @@
 
 ## What is this?
 
-Samagama FAQ is a self-evolving, AI + community-powered knowledge operating system built for the [Vicharanashala Internship](https://vicharanashala.org/) at IIT Ropar. It replaces the old static FAQ page and chaotic #escalate workflow with a layered system that gets smarter every day:
+Samagama FAQ is a self-evolving, AI + community-powered knowledge operating system built for the Vicharanashala Internship at IIT Ropar. It replaces the old static FAQ page and chaotic #escalate workflow with a layered system that gets smarter every day:
 
 - **Semantic FAQ search** — vector embeddings find the right answer even when the wording differs
 - **RAG AI assistant** — Gemini answers questions using only verified content, never hallucinating
