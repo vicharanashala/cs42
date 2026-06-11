@@ -3,7 +3,6 @@
 # 🎓 Samagama FAQ — Knowledge OS
 ### AI-Powered Internship Help Platform · IIT Ropar / Vicharanashala
 
-**[Live Demo →](https://samagama-faq-alpha.vercel.app/)**
 
 ![Next.js](https://img.shields.io/badge/Next.js_14-black?style=for-the-badge&logo=next.js)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
